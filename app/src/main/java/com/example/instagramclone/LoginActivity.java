@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView txt_signUp;
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
+    private FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +114,17 @@ public class LoginActivity extends AppCompatActivity {
         txt_signUp = findViewById(R.id.text_signUp);
         mAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
+
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        currentUser= FirebaseAuth.getInstance().getCurrentUser();
+        if(currentUser !=null) {
+            startActivity(new Intent( LoginActivity.this , HomeMain.class));
+            finish();
+        }
 
     }
 }
