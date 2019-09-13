@@ -13,13 +13,8 @@
 android:id="@+id/fragment_container"
         app:layout_constraintTop_toTopOf="parent"
         >
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="signOyut"
-            android:id="@+id/signOut"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
+
 
     </FrameLayout>
 
@@ -40,5 +35,15 @@ android:id="@+id/fragment_container"
         app:menu="@menu/bottom_navigation"
         />
 </com.google.android.material.appbar.AppBarLayout>
+
+    <Button
+        android:id="@+id/signOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="signOyut"
+        app:layout_constraintBottom_toTopOf="@+id/nav"
+
+
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
