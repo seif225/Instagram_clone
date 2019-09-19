@@ -57,16 +57,26 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             holder.comment.setText(comment.getComment());
             getUserInfo(holder.image_profile,holder.username,comment.getPublisher());
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                    Intent intent = new Intent (context, HomeMain.class);
-                    intent.putExtra("publsiherid",comment.getPublisher());
-                    context.startActivity(intent);
+        holder.username.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-                }
-            });
+                Intent intent = new Intent(context, HomeMain.class);
+                intent.putExtra("publisherid", comment.getPublisher());
+                context.startActivity(intent);
+            }
+        });
+
+        holder.image_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(context, HomeMain.class);
+                intent.putExtra("publisherid", comment.getPublisher());
+                context.startActivity(intent);
+            }
+        });
 
 
     }
