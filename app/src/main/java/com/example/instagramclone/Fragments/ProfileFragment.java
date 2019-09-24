@@ -1,6 +1,7 @@
 package com.example.instagramclone.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.instagramclone.Adapter.MyPhotoAdapter;
+import com.example.instagramclone.EditProfileActivity;
 import com.example.instagramclone.Model.Post;
 import com.example.instagramclone.Model.User;
 import com.example.instagramclone.R;
@@ -134,6 +136,8 @@ public class ProfileFragment extends Fragment {
                 if (btn.equals("Edit Profile")) {
                     //TODO: go to the edit profile activity , it's not created yet.
 
+                startActivity(new Intent(getContext(), EditProfileActivity.class));
+
 
                 } else if (btn.equals("follow")) {
 
@@ -187,11 +191,25 @@ public class ProfileFragment extends Fragment {
         });
 
 
+
+
+
+
+
+
+
+
+
     }
 
     private void userInfo() {
+
+        Log.e("userINFO PF" , "profile id : "+profileId);
+
         DatabaseReference ref = FirebaseDatabase.getInstance()
                 .getReference("Users").child(profileId);
+
+
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override

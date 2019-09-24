@@ -11,22 +11,24 @@ import android.view.ViewGroup;
 
 import com.example.instagramclone.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class NotificationFragment extends Fragment {
 
 
-    public NotificationFragment() {
-        // Required empty public constructor
-    }
-
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notification, container, false);
+        view=inflater.inflate(R.layout.fragment_notification, container, false);
+
+
+
+
+
+
+
+        return view;
     }
 
 }
